@@ -1,0 +1,91 @@
+@import "../../../assets/styles/colors";
+
+.site-header-container {
+  background-color: getColor(site-header-color);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 2px 0 5px -2px getColor(site-header-color);
+  .header-tabs-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+
+    .header-site-title-container {
+      display: flex;
+      align-items: center;
+      margin-right: 5rem;
+
+      span {
+        font-size: 25px;
+        font-weight: bold;
+        color: getColor(text-color);
+      }
+    }
+
+    .header-tab {
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      color: getColor(text-color);
+      margin-bottom: -0.3rem;
+      &.active {
+        color: getColor(site-header-active-color);
+      }
+    }
+
+    .header-tab {
+      --b: 0.2em;
+      color: #0000;
+      padding-block: var(--b);
+      background: linear-gradient(
+            getColor(site-header-hover-color) 50%,
+            getColor(text-color) 0
+          )
+          0% calc(100% - var(--_p, 0%)) / 100% 200%,
+        linear-gradient(getColor(site-header-hover-color) 0 0) 0% var(--_p, 0%) /
+          var(--_p, 0%) var(--b) no-repeat;
+      -webkit-background-clip: text, padding-box;
+      background-clip: text, padding-box;
+      transition: 0.3s var(--_s, 0s) linear,
+        background-size 0.3s calc(0.3s - var(--_s, 0s));
+    }
+    .header-tab:hover {
+      --_p: 100%;
+      --_s: 0.3s;
+    }
+  }
+
+  .header-icon-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header-profile-container {
+      display: flex;
+      gap: 0.2rem;
+      margin-left: 1rem;
+      align-items: center;
+
+      i {
+        cursor: pointer;
+        color: getColor(text-color);
+        font-size: 25px;
+      }
+      i:hover {
+        color: getColor(site-header-hover-color);
+      }
+    }
+
+    i {
+      cursor: pointer;
+      color: getColor(text-color);
+      font-size: 20px;
+    }
+
+    i:hover {
+      color: getColor(site-header-hover-color);
+    }
+  }
+}

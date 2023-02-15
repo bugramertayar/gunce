@@ -1,0 +1,45 @@
+:root {
+  .light-mode {
+    --site-header-color: #ffbc01;
+    --site-header-hover-color: #c62d70;
+    --site-header-active-color: #c62d70;
+    --site-background-color: #fefefe;
+    --text-color: #42385d;
+    --success-color: #198754;
+    --primary-color: #1095c1;
+    --danger-color: #de354c;
+    --warning-color: #fba92c;
+    --white-color: #ffffff;
+  }
+}
+:root {
+  .dark-mode {
+    --site-header-color: #000000;
+    --site-header-hover-color: #1095c1;
+    --site-header-active-color: #1095c1;
+    --site-background-color: #292929;
+    --text-color: #ffebd0;
+    --success-color: #198754;
+    --primary-color: #1095c1;
+    --danger-color: #de354c;
+    --warning-color: #fba92c;
+    --white-color: #ffffff;
+  }
+}
+
+$all-colors: (
+  "site-header-color": var(--site-header-color),
+  "site-header-hover-color": var(--site-header-hover-color),
+  "site-header-active-color": var(--site-header-hover-color),
+  "site-background-color": var(--site-background-color),
+  "text-color": var(--text-color),
+  "success-color": var(--success-color),
+  "primary-color": var(--primary-color),
+  "danger-color": var(--danger-color),
+  "warning-color": var(--warning-color),
+  "white-color": var(--white-color),
+);
+
+@function getColor($color) {
+  @return map-get($all-colors, $color);
+}

@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./assets/styles/colors";
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    getColor(site-background-color) 0%,
+    getColor(site-background-color) 90%
+  );
+}
+
+.ant-picker-calendar-full {
+  .ant-picker-panel {
+    .ant-picker-calendar-date-content {
+      height: auto;
+    }
+  }
+}
+
+.ant-picker-calendar-full {
+  .ant-picker-panel {
+    .ant-picker-calendar-date {
+      height: 100%;
+    }
+  }
+}
+
+.ant-picker-calendar {
+  height: calc(100vh - 7.2rem);
+  display: block;
+
+  .ant-picker-panel {
+    height: calc(100vh - 11.2rem);
+
+    .ant-picker-body,
+    .ant-picker-date-panel {
+      height: inherit;
+      date-table {
+        display: block;
+        height: inherit;
+
+        table {
+          height: inherit;
+        }
+      }
+    }
+  }
+}
