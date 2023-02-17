@@ -4,8 +4,10 @@
     <div class="header-site-title-container">
       <span [routerLink]="['/calendar']">LOGO</span>
     </div>
-    <div [routerLink]="['/calendar']" routerLinkActive="active" class="header-tab">Calendar</div>
-    <div [routerLink]="['/home']" routerLinkActive="active" class="header-tab">Home</div>
+    <div [routerLink]="['/calendar']" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active"
+      class="header-tab">Calendar</div>
+    <div [routerLink]="['/home']" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active"
+      class="header-tab">Home</div>
   </div>
   <div class="header-icon-container">
     <i *ngIf="!isDarkMode" (click)="changeToDarkMode(true)" class="bi bi-moon-stars ms-2"></i>
