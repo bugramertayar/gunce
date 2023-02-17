@@ -1,21 +1,9 @@
-<nz-calendar (nzSelectChange)="selectedChanged($event)">
-  <ul *nzDateCell="let date" class="events">
-    <ng-container [ngSwitch]="date">
-      <ng-container *ngSwitchCase="8">
-        <li *ngFor="let item of listDataMap.eight">
-          <nz-badge [nzStatus]="item.type" [nzText]="item.content"></nz-badge>
-        </li>
-      </ng-container>
-      <ng-container *ngSwitchCase="10">
-        <li *ngFor="let item of listDataMap.ten">
-          <nz-badge [nzStatus]="item.type" [nzText]="item.content"></nz-badge>
-        </li>
-      </ng-container>
-      <ng-container *ngSwitchCase="11">
-        <li *ngFor="let item of listDataMap.eleven">
-          <nz-badge [nzStatus]="item.type" [nzText]="item.content"></nz-badge>
-        </li>
-      </ng-container>
+<nz-calendar (nzSelectChange)="selectedChanged($event)" (nzPanelChange)="dateChanged($event)">
+  <ul *nzDateCell="let date" class="calendar-events">
+    <ng-container *ngIf="listDataMap | matchDateObject: (date | getDateNumbers)">
+      <li *ngFor="let item of listDataMap | matchDateObject: (date | getDateNumbers)">
+        <nz-badge [nzStatus]="'success'" [nzText]="item"></nz-badge>
+      </li>
     </ng-container>
   </ul>
 </nz-calendar>

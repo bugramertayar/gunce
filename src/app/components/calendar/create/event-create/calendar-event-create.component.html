@@ -1,0 +1,12 @@
+<div class="calendar-create-page-container">
+  <form [formGroup]="calendarCreateForm" novalidate>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Diary</label>
+      <textarea rows="4" nz-input formControlName="content" placeholder="Write your Diary"></textarea>
+    </div>
+    <div class="button-container">
+      <button nz-button nzBlock nzType="primary" type="submit" class="btn btn-primary"
+        [disabled]="!calendarCreateForm.valid" (click)="calendarCreateForm.valid ? onSubmit() : false">Submit</button>
+    </div>
+  </form>
+</div>

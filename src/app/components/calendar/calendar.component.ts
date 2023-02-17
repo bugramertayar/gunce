@@ -1,4 +1,7 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CalendarListModel } from './model/calendar-list.model';
 
 @Component({
   selector: 'app-calendar',
@@ -6,38 +9,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calendar.component.scss'],
 })
 export class CalendarComponent implements OnInit {
-  listDataMap = {
-    eight: [
-      { type: 'warning', content: 'This is warning event.' },
-      { type: 'success', content: 'This is usual event.' },
-    ],
-    ten: [
-      { type: 'warning', content: 'This is warning event.' },
-      { type: 'success', content: 'This is usual event.' },
-      { type: 'error', content: 'This is error event.' },
-    ],
-    eleven: [
-      { type: 'warning', content: 'This is warning event' },
-      { type: 'success', content: 'This is very long usual event........' },
-      { type: 'error', content: 'This is error event 1.' },
-      { type: 'error', content: 'This is error event 2.' },
-      { type: 'error', content: 'This is error event 3.' },
-      { type: 'error', content: 'This is error event 4.' },
-    ],
-  };
+  listDataMap: CalendarListModel[] = [];
 
-  constructor() {}
+  constructor(public http: HttpClient, public router: Router) {}
 
-  ngOnInit(): void {}
-
-  getMonthData(date: Date): number | null {
-    if (date.getMonth() === 8) {
-      return 1394;
-    }
-    return null;
+  ngOnInit(): void {
+    this.http
+      .get<any>('http://10.22.8.57:8080/api/account/deneme', {
+        headers: new HttpHeaders(),
+        observe: 'body',
+        reportProgress: true,
+        responseType: 'json',
+      })
+      .subscribe((data) => {
+        this.listDataMap = data;
+      });
   }
 
   selectedChanged(value: any) {
+    console.log(value);
+    this.router.navigateByUrl('calendar/create');
+  }
+  dateChanged(value: any) {
     console.log(value);
   }
 }

@@ -17,6 +17,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzCalendarModule } from 'ng-zorro-antd/calendar';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
+import { GetDateNumbersPipe } from './common/pipes/get-date-numbers.pipe';
+import { MatchDatePipe } from './common/pipes/match-date-object.pipe';
+import { CalendarEventCreateComponent } from './components/calendar/create/event-create/calendar-event-create.component';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 registerLocaleData(en);
 
@@ -28,6 +33,9 @@ registerLocaleData(en);
     LoginComponent,
     RegisterComponent,
     ButtonComponent,
+    GetDateNumbersPipe,
+    MatchDatePipe,
+    CalendarEventCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +46,8 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     NzCalendarModule,
     NzBadgeModule,
+    NzInputModule,
+    NzButtonModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
