@@ -22,6 +22,8 @@ import { MatchDatePipe } from './common/pipes/match-date-object.pipe';
 import { CalendarEventCreateComponent } from './components/calendar/create/event-create/calendar-event-create.component';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { QuillModule } from 'ngx-quill';
+import { ArticleEditorComponent } from './common/article-editor/article-editor.component';
 
 registerLocaleData(en);
 
@@ -36,6 +38,7 @@ registerLocaleData(en);
     GetDateNumbersPipe,
     MatchDatePipe,
     CalendarEventCreateComponent,
+    ArticleEditorComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ registerLocaleData(en);
     NzBadgeModule,
     NzInputModule,
     NzButtonModule,
+    QuillModule.forRoot(),
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],

@@ -27,9 +27,9 @@ export class CalendarComponent implements OnInit {
   }
 
   selectedChanged(value: any) {
-    console.log(value);
     this.router.navigateByUrl('calendar/create');
   }
+
   dateChanged(value: any) {
     console.log(value);
   }

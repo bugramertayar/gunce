@@ -1,25 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import 'quill-mention';
+import 'quill-emoji';
 @Component({
   selector: 'app-calendar-event-create',
   templateUrl: './calendar-event-create.component.html',
   styleUrls: ['./calendar-event-create.component.scss'],
 })
 export class CalendarEventCreateComponent implements OnInit {
-  calendarCreateForm: FormGroup = new FormGroup({});
-
+  articleInput: string = '';
   constructor() {}
 
-  ngOnInit(): void {
-    this.calendarCreateForm = new FormGroup({
-      content: new FormControl('', [Validators.required]),
-    });
+  ngOnInit(): void {}
+
+  articleContentChanged(value: string) {
+    this.articleInput = value;
   }
 
   onSubmit() {
-    if (this.calendarCreateForm.valid) {
-      console.log(this.calendarCreateForm.controls['content'].value);
-    }
+    console.log(this.articleInput);
   }
 }
