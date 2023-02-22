@@ -1,5 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginModel } from './model/login.model';
+import { LoginService } from './service/login.service';
 
 @Component({
   selector: 'app-login',
@@ -9,17 +13,25 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({});
 
-  constructor() {}
+  constructor(public loginService: LoginService, public router: Router) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
+      username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
     });
   }
 
   onSubmit() {
     if (this.loginForm.valid) {
+      const loginModel = new LoginModel();
+      loginModel.username = this.loginForm.get('username')?.value;
+      loginModel.password = this.loginForm.get('password')?.value;
+      this.loginService.login(loginModel).subscribe((result) => {
+        if (result) {
+          this.router.navigateByUrl('calendar');
+        }
+      });
     }
   }
 }

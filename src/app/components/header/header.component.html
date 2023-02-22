@@ -12,7 +12,7 @@
   <div class="header-icon-container">
     <i *ngIf="!isDarkMode" (click)="changeToDarkMode(true)" class="bi bi-moon-stars ms-2"></i>
     <i *ngIf="isDarkMode" (click)="changeToDarkMode(false)" class="bi bi-moon-stars-fill ms-2"></i>
-    <div class="header-profile-container">
+    <div class="header-profile-container" (click)="logout()">
       <i class="bi bi-person-circle"></i>
     </div>
   </div>

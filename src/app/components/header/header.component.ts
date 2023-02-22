@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   isDarkMode: boolean = false;
-  constructor() {}
+  constructor(public router: Router) {}
 
   ngOnInit(): void {}
 
@@ -23,5 +24,10 @@ export class HeaderComponent implements OnInit {
       localStorage.setItem('mode', 'light-mode');
       this.isDarkMode = false;
     }
+  }
+
+  logout() {
+    this.router.navigateByUrl('login');
+    localStorage.removeItem('token');
   }
 }

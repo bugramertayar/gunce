@@ -14,6 +14,11 @@ export class AppComponent {
   constructor(private router: Router) {}
 
   ngOnInit() {
+    if (localStorage.getItem('mode') === 'dark-mode') {
+      this.changeToDarkMode(true);
+    } else {
+      this.changeToDarkMode(false);
+    }
     this.router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
         if (event['url'] == '/login' || event['url'] == '/register') {
@@ -23,11 +28,6 @@ export class AppComponent {
         }
       }
     });
-    if (localStorage.getItem('mode') === 'dark-mode') {
-      this.changeToDarkMode(true);
-    } else {
-      this.changeToDarkMode(false);
-    }
   }
 
   changeToDarkMode(changeToDarkMode: boolean) {
