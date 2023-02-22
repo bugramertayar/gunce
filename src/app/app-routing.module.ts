@@ -13,7 +13,7 @@ const routes: Routes = [
     component: CalendarComponent,
   },
   {
-    path: 'calendar/create',
+    path: 'calendar/create/:day/:month/:year',
     canActivate: [CanActivateViaAuthGuard],
     component: CalendarEventCreateComponent,
   },

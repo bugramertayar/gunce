@@ -16,13 +16,16 @@ export class CalendarComponent implements OnInit {
 
   ngOnInit(): void {
     this.calendarService.getCalendarList().subscribe((result) => {
-      console.log(result);
       this.listDataMap = result;
     });
   }
 
-  selectedChanged(value: any) {
-    this.router.navigateByUrl('calendar/create');
+  selectedChanged(value: Date) {
+    this.router.navigateByUrl(
+      `calendar/create/${value.getDate()}/${
+        value.getMonth() + 1
+      }/${value.getFullYear()}`
+    );
   }
 
   dateChanged(value: any) {
