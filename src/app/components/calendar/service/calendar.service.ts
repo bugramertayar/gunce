@@ -14,9 +14,12 @@ export class CalendarService extends BaseService {
     super(http);
   }
 
-  public getCalendarList(): Observable<CalendarListModel[]> {
+  public getCalendarList(
+    month: number,
+    year: number
+  ): Observable<CalendarListModel[]> {
     return this.get(
-      `${environment.apiUrl}account/get-contents-by-months/2/2023`,
+      `${environment.apiUrl}account/get-contents-by-months/${month}/${year}`,
       'hidden'
     ).pipe(
       map((data: any) => {
