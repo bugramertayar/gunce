@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CanActivateViaAuthGuard } from './common/guard/can-activate-via-auth.guard';
-import { CalendarComponent } from './components/calendar/calendar.component';
-import { CalendarEventCreateComponent } from './components/calendar/create/event-create/calendar-event-create.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
@@ -10,12 +8,10 @@ const routes: Routes = [
   {
     path: 'calendar',
     canActivate: [CanActivateViaAuthGuard],
-    component: CalendarComponent,
-  },
-  {
-    path: 'calendar/details/:day/:month/:year',
-    canActivate: [CanActivateViaAuthGuard],
-    component: CalendarEventCreateComponent,
+    loadChildren: () =>
+      import('./components/calendar/calendar.module').then(
+        (m) => m.CalendarModule
+      ),
   },
   {
     path: 'login',
