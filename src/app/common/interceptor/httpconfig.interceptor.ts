@@ -6,7 +6,6 @@ import {
   HttpResponse,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, flatMap, retryWhen, take, tap } from 'rxjs/operators';
 import { AuthorizationService } from '../services/authorization.service';

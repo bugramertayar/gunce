@@ -10,7 +10,6 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { QuillModule } from 'ngx-quill';
 import { ArticleEditorComponent } from './article-editor/article-editor.component';
-import { ButtonComponent } from './button/button.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { GetDateNumbersPipe } from './pipes/get-date-numbers.pipe';
 import { MatchDatePipe } from './pipes/match-date-object.pipe';
@@ -35,7 +34,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     QuillModule.forRoot(),
   ],
   declarations: [
-    ButtonComponent,
     DropdownComponent,
     SpinnerComponent,
     GetDateNumbersPipe,
@@ -43,7 +41,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     ArticleEditorComponent,
   ],
   exports: [
-    ButtonComponent,
     DropdownComponent,
     SpinnerComponent,
     GetDateNumbersPipe,
