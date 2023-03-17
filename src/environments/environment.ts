@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://10.22.54.207:8080/api/',
+  apiUrl: 'http://app-f134be80-23ab-4100-95fd-cf4bc5a3fa8b.cleverapps.io/api/',
 };
 
 /*
