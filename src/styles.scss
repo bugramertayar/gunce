@@ -14,6 +14,11 @@ html {
 .ant-picker-calendar {
   height: calc(100vh - 7.2rem);
   display: block;
+  padding: 0 1rem;
+
+  .ant-picker-calendar-mode-switch {
+    display: none;
+  }
 
   .ant-picker-panel {
     height: calc(100vh - 11.2rem);
