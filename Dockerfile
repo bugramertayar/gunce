@@ -23,7 +23,8 @@ FROM nginx:1.21.3-alpine
 COPY --from=builder /app/dist/gunce /usr/share/nginx/html
 
 # Expose port 80 to the Docker host
-EXPOSE 80
+ENV PORT=8080
+EXPOSE 8080
 
 # Start Nginx when the container is started
 CMD ["nginx", "-g", "daemon off;"]
