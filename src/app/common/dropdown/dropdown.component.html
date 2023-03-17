@@ -1,0 +1,7 @@
+<div class="dropdown-container">
+  <span class="dropdown-label">{{label}}</span>
+  <nz-select [(ngModel)]="selectedValue" (ngModelChange)="valueChanged($event)" nzAllowClear
+    [nzPlaceHolder]="placeholder">
+    <nz-option *ngFor="let option of optionList" [nzValue]="option.id" [nzLabel]="option.name"></nz-option>
+  </nz-select>
+</div>

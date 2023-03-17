@@ -1,0 +1,11 @@
+@import "../../../assets/styles/colors";
+
+.dropdown-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+
+  .ant-select {
+    display: block;
+  }
+}

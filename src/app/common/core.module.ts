@@ -7,11 +7,16 @@ import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCalendarModule } from 'ng-zorro-antd/calendar';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 import { QuillModule } from 'ngx-quill';
 import { ArticleEditorComponent } from './article-editor/article-editor.component';
 import { ButtonComponent } from './button/button.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
 import { GetDateNumbersPipe } from './pipes/get-date-numbers.pipe';
 import { MatchDatePipe } from './pipes/match-date-object.pipe';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   imports: [
@@ -21,19 +26,26 @@ import { MatchDatePipe } from './pipes/match-date-object.pipe';
     ReactiveFormsModule,
     HttpClientModule,
     NzBadgeModule,
+    NzSelectModule,
     NzInputModule,
     NzButtonModule,
+    NzNotificationModule,
+    NzSpinModule,
     NzCalendarModule,
     QuillModule.forRoot(),
   ],
   declarations: [
     ButtonComponent,
+    DropdownComponent,
+    SpinnerComponent,
     GetDateNumbersPipe,
     MatchDatePipe,
     ArticleEditorComponent,
   ],
   exports: [
     ButtonComponent,
+    DropdownComponent,
+    SpinnerComponent,
     GetDateNumbersPipe,
     MatchDatePipe,
     ArticleEditorComponent,
@@ -43,8 +55,11 @@ import { MatchDatePipe } from './pipes/match-date-object.pipe';
     ReactiveFormsModule,
     HttpClientModule,
     NzBadgeModule,
+    NzSelectModule,
     NzInputModule,
     NzButtonModule,
+    NzNotificationModule,
+    NzSpinModule,
     NzCalendarModule,
   ],
   providers: [],

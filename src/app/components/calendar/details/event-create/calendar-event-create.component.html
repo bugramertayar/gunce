@@ -1,7 +1,21 @@
 <div class="calendar-create-page-container">
-  <app-article-editor (articleContentChanged)="articleContentChanged($event)"></app-article-editor>
-  <div class="button-container">
-    <button nz-button nzBlock nzType="primary" type="submit" class="btn btn-primary"
-      (click)="onSubmit()">Submit</button>
+  <div class="row">
+    <div class="col-6 mb-3">
+      <app-dropdown [selectedValue]="selectedEventId" [optionList]="optionList" [placeholder]="'Choose Event Type'"
+        [label]="'Choose Event Type'" (dropdownValueChanged)="dropdownValueChanged($event)"></app-dropdown>
+    </div>
+
+    <div class="col-12 mb-4 editor-container">
+      <app-article-editor [htmlInputModel]="articleInput"
+        (articleContentChanged)="articleContentChanged($event)"></app-article-editor>
+    </div>
+
+    <div class="button-container">
+      <button nz-button nzType="primary" type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+    </div>
   </div>
+</div>
+
+<div class="calendar-events-loader-container" *ngIf="showLoader">
+  <app-spinner></app-spinner>
 </div>

@@ -1,9 +1,24 @@
 .calendar-create-page-container {
   padding: 1rem;
   height: calc(100vh - 12rem);
+
+  .editor-container {
+    min-height: 10rem;
+  }
+
   .button-container {
     display: flex;
     justify-content: flex-end;
-    margin-top: 1rem;
+    margin-top: 2rem;
+
+    button {
+      width: 15rem;
+    }
   }
+}
+
+.calendar-events-loader-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
 }

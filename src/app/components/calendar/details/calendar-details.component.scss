@@ -1,0 +1,55 @@
+@import "../../../../assets/styles/colors";
+
+.content-card-container {
+  margin: 1.5rem;
+
+  .content-card-header-container {
+    display: flex;
+    justify-content: space-between;
+
+    .content-card-header-icon-container {
+      display: flex;
+      gap: 1rem;
+
+      i {
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      .delete-icon {
+        color: getColor("danger-color");
+      }
+    }
+  }
+}
+
+.add-new-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  margin-right: 1.5rem;
+}
+
+.calendar-details-loader-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.create-page-button-container {
+  margin: 1rem 0 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  width: fit-content;
+
+  i {
+    font-size: 25px;
+  }
+
+  .go-back-text {
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
