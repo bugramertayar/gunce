@@ -2,9 +2,13 @@
   (nzSelectChange)="selectedChanged($event)" (nzPanelChange)="panelChanged($event)">
   <ul *nzDateCell="let date" class="calendar-events" (click)="clickedDate(date)">
     <ng-container *ngIf="listDataMap | matchDateObject: (date | getDateNumbers)">
-      <li *ngFor="let item of listDataMap | matchDateObject: (date | getDateNumbers)">
-        <nz-badge [nzStatus]="'success'" [nzText]="item"></nz-badge>
-      </li>
+      <div class="row p-0 m-0">
+        <li class="col-6 ps-0 pe-2" *ngFor="let item of listDataMap | matchDateObject: (date | getDateNumbers)">
+          <div [class]="'calendar-list-item-container-' + item">
+            {{item}}
+          </div>
+        </li>
+      </div>
     </ng-container>
   </ul>
 </nz-calendar>

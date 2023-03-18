@@ -7,13 +7,13 @@
     <i class="bi bi-arrow-left-circle"></i>
     <span class="go-back-text">Go Back To Your Events</span>
   </div>
-  <app-calendar-event-create [currentDay]="currentDay" [currentMonth]="currentMonth"
-    [currentYear]="currentYear"></app-calendar-event-create>
+  <app-calendar-event-create [currentDay]="currentDay" [currentMonth]="currentMonth" [currentYear]="currentYear"
+    (eventSubmitted)="eventSubmitted($event)"></app-calendar-event-create>
 </ng-container>
 
 <ng-container *ngIf="allEvents.length > 0 && !showLoader">
   <div class="row m-0">
-    <div [ngClass]="{'col-12': !selectedEvent?.id, 'col-6' : selectedEvent?.id }">
+    <div [ngClass]="{'col-12': !selectedEvent.id, 'col-6' : selectedEvent.id }">
       <div class="add-new-button-container">
         <button nz-button nzType="primary" type="button" class="btn btn-primary" (click)="addNewEvent()">Add New
           Event</button>
@@ -22,7 +22,8 @@
       <ng-container *ngFor="let event of allEvents">
         <div class="card content-card-container">
           <div class="card-header content-card-header-container">
-            <span>{{event.eventTypeList.eventTypeName}}</span>
+            <span
+              [class]="'content-card-header-'+ event.eventTypeList.eventTypeName">{{event.eventTypeList.eventTypeName}}</span>
             <div class="content-card-header-icon-container">
               <i class="bi bi-pencil-square" (click)="openEventDetail(event)"></i>
               <i class="bi bi-calendar-x delete-icon" (click)="deleteEvent(event.id)"></i>
@@ -37,7 +38,7 @@
     </div>
     <div class="col-6" *ngIf="selectedEvent?.id">
       <app-calendar-event-create [selectedEvent]="selectedEvent" [currentDay]="currentDay" [currentMonth]="currentMonth"
-        [currentYear]="currentYear"></app-calendar-event-create>
+        [currentYear]="currentYear" (eventSubmitted)="eventSubmitted($event)"></app-calendar-event-create>
     </div>
   </div>
 </ng-container>

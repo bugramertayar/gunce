@@ -54,7 +54,7 @@ export class CalendarDetailsComponent implements OnInit {
           if (result) {
             this.notificationService.success(
               'Delete Event',
-              'Event successfully deleted.'
+              'Your event have successfully deleted.'
             );
             this.selectedEvent = new CalendarDetailsContentModel();
             this.getDayEvents(() => {
@@ -66,11 +66,7 @@ export class CalendarDetailsComponent implements OnInit {
   }
 
   goBackToEvents() {
-    this.showLoader = true;
-    this.selectedEvent = new CalendarDetailsContentModel();
-    this.getDayEvents(() => {
-      this.showLoader = false;
-    });
+    this.refreshPage();
   }
 
   getDayEvents(completed?: () => void) {
@@ -85,6 +81,20 @@ export class CalendarDetailsComponent implements OnInit {
           completed();
         }
       });
+  }
+
+  eventSubmitted(value: boolean) {
+    if (value) {
+      this.refreshPage();
+    }
+  }
+
+  refreshPage() {
+    this.showLoader = true;
+    this.selectedEvent = new CalendarDetailsContentModel();
+    this.getDayEvents(() => {
+      this.showLoader = false;
+    });
   }
 
   addNewEvent() {

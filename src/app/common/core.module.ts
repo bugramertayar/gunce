@@ -3,7 +3,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCalendarModule } from 'ng-zorro-antd/calendar';
 import { NzInputModule } from 'ng-zorro-antd/input';
@@ -24,7 +23,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NzBadgeModule,
     NzSelectModule,
     NzInputModule,
     NzButtonModule,
@@ -51,7 +49,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NzBadgeModule,
     NzSelectModule,
     NzInputModule,
     NzButtonModule,

@@ -6,6 +6,26 @@
   .content-card-header-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    .content-card-header-Diary,
+    .content-card-header-Reminder,
+    .content-card-header-Note {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .content-card-header-Diary {
+      color: #423885;
+    }
+
+    .content-card-header-Reminder {
+      color: #28b573;
+    }
+
+    .content-card-header-Note {
+      color: #3a8add;
+    }
 
     .content-card-header-icon-container {
       display: flex;
