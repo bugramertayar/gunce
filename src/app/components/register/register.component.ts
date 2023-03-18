@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { RegisterModel } from './model/register.model';
 import { RegisterService } from './service/register.service';
 
@@ -12,7 +13,11 @@ import { RegisterService } from './service/register.service';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({});
 
-  constructor(public registerService: RegisterService, public router: Router) {}
+  constructor(
+    public registerService: RegisterService,
+    public router: Router,
+    private notificationService: NzNotificationService
+  ) {}
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -32,6 +37,10 @@ export class RegisterComponent implements OnInit {
       registerModel.password = this.registerForm.get('password')?.value;
       this.registerService.login(registerModel).subscribe((result) => {
         if (result) {
+          this.notificationService.success(
+            'Register',
+            'Great. Welcome to Günce. You have successfully registered.'
+          );
           this.router.navigateByUrl('login');
         }
       });
