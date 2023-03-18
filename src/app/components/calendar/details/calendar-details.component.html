@@ -13,7 +13,7 @@
 
 <ng-container *ngIf="allEvents.length > 0 && !showLoader">
   <div class="row m-0">
-    <div [ngClass]="{'col-12': !selectedEvent?.id, 'col-6' : selectedEvent?.id }">
+    <div [ngClass]="{'col-12': !selectedEvent.id, 'col-6' : selectedEvent.id }">
       <div class="add-new-button-container">
         <button nz-button nzType="primary" type="button" class="btn btn-primary" (click)="addNewEvent()">Add New
           Event</button>

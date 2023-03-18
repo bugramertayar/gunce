@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 
@@ -11,7 +12,7 @@ export class AppComponent {
 
   showHeader: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private location: Location) {}
 
   ngOnInit() {
     if (localStorage.getItem('mode') === 'dark-mode') {
@@ -21,7 +22,11 @@ export class AppComponent {
     }
     this.router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
-        if (event['url'] == '/login' || event['url'] == '/register') {
+        if (
+          event['url'] == '/login' ||
+          event['url'] == '/register' ||
+          event['url'] == '/'
+        ) {
           this.showHeader = false;
         } else {
           this.showHeader = true;
