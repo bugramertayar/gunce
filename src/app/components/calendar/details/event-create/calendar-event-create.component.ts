@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import 'quill-mention';
 import 'quill-emoji';
-import { Router } from '@angular/router';
 import { CalendarCreateEventModel } from '../../model/calendar-create-event.model';
 import { CalendarService } from '../../service/calendar.service';
 import { CalendarDetailsContentModel } from '../../model/calendar-details-content.model';
@@ -17,6 +16,8 @@ export class CalendarEventCreateComponent implements OnInit {
   @Input() currentDay: number = 0;
   @Input() currentMonth: number = 0;
   @Input() currentYear: number = 0;
+  @Output() eventSubmitted: EventEmitter<boolean>;
+
   articleInput: string = '';
   selectedEventId: number = 1;
   optionList: DropdownOptionModel[] = [];
@@ -42,9 +43,10 @@ export class CalendarEventCreateComponent implements OnInit {
 
   constructor(
     public calendarService: CalendarService,
-    public router: Router,
     private notificationService: NzNotificationService
-  ) {}
+  ) {
+    this.eventSubmitted = new EventEmitter();
+  }
 
   ngOnInit(): void {
     this.calendarService
@@ -77,10 +79,10 @@ export class CalendarEventCreateComponent implements OnInit {
           if (result) {
             this.notificationService.success(
               'Update Event',
-              'Event successfully updated.'
+              'Your event have successfully updated.'
             );
             this.showLoader = false;
-            this.router.navigateByUrl('calendar');
+            this.eventSubmitted.emit(true);
           }
         });
     } else {
@@ -97,10 +99,10 @@ export class CalendarEventCreateComponent implements OnInit {
           if (result) {
             this.notificationService.success(
               'Create Event',
-              'Event successfully created.'
+              'Your event have successfully created.'
             );
             this.showLoader = false;
-            this.router.navigateByUrl('calendar');
+            this.eventSubmitted.emit(true);
           }
         });
     }
