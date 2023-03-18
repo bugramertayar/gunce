@@ -1,24 +1,48 @@
-<div class="login-page-container">
-  <div class="login-form-container">
-    <div class="form-container">
-      <span>Welcome to Günce</span>
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" class="form-control" formControlName="username" name="username"
-            placeholder="Enter username">
-        </div>
+<div class="row h-100 m-0 p-0">
+  <div class="col-lg-6">
+    <div class="form-side-container">
+      <div class="form-header-container">
+        <i class="bi bi-journal-richtext"></i>
+        <span class="form-header-text">We are the Günce Team</span>
+      </div>
+      <div class="form-container">
+        <span class="login-helper-text">Please login to your account</span>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="username">Username</label>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping"><i class="bi bi-person-fill"></i></span>
+              <input type="text" class="form-control" formControlName="username" name="username"
+                placeholder="Enter username">
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <label class="form-label" for="password">Password</label>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping"><i class="bi bi-eye-fill"></i></span>
+              <input type="password" name="password" class="form-control" formControlName="password"
+                placeholder="Password">
+            </div>
+          </div>
+          <div class="login-button-container mt-4">
+            <button class="btn btn-block fa-lg login-button" type="submit" [disabled]="!loginForm.valid">LOG IN</button>
+            <span class="text-muted forgot-password-text">Forgot password?</span>
 
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" formControlName="password" placeholder="Password">
-        </div>
-        <div class="login-button-container">
-          <button type="button" class="btn btn-secondary" (click)="goToRegister()">Register</button>
-          <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
-        </div>
-      </form>
+            <div class="d-flex align-items-center justify-content-center pb-4">
+              <p class="go-to-register-text">Don't have an account? <span role="button" (click)="goToRegister()"
+                  class="link-info">Register here</span></p>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-
+  </div>
+  <div class="col-lg-6 card-info-container">
+    <div class="card-info-text-container">
+      <span class="card-info-title">We are more than just a company</span>
+      <span class="card-info-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis minima
+        suscipit modi dolor voluptates vitae ratione saepe, tempore culpa sapiente consequuntur architecto neque officia
+        laudantium rerum doloribus quam dolorem aliquid!</span>
+    </div>
   </div>
 </div>

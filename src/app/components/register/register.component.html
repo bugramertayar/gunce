@@ -1,36 +1,62 @@
-<div class="login-page-container">
-  <div class="login-form-container">
-    <div class="form-container">
-      <span>Welcome to Günce</span>
-      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
-        <div class="form-group">
-          <label for="nameSurname">Name - Surname</label>
-          <input type="text" class="form-control" formControlName="nameSurname" name="nameSurname"
-            placeholder="Enter name - surname">
-        </div>
+<div class="row h-100 m-0 p-0">
+  <div class="col-lg-6">
+    <div class="form-side-container">
+      <div class="form-header-container">
+        <i class="bi bi-journal-richtext"></i>
+        <span class="form-header-text">Welcome to Günce</span>
+      </div>
+      <div class="form-container">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="nameSurname">Name - Surname</label>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping"><i class="bi bi-person-fill"></i></span>
+              <input type="text" class="form-control" formControlName="nameSurname" name="nameSurname"
+                placeholder="Enter name - surname">
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <label class="form-label" for="username">Username</label>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping"><i class="bi bi-person-fill"></i></span>
+              <input type="text" class="form-control" formControlName="username" name="username"
+                placeholder="Enter username">
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <label class="form-label" for="nameSurname">Email</label>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping"><i class="bi bi-envelope"></i></span>
+              <input type="email" class="form-control" formControlName="email" name="email" placeholder="Enter Email">
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <label class="form-label" for="password">Password</label>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping"><i class="bi bi-eye-fill"></i></span>
+              <input type="password" name="password" class="form-control" formControlName="password"
+                placeholder="Password">
+            </div>
+          </div>
+          <div class="register-button-container mt-4">
+            <button class="btn btn-block fa-lg register-button" type="submit"
+              [disabled]="!registerForm.valid">REGISTER</button>
 
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" class="form-control" formControlName="username" name="username"
-            placeholder="Enter username">
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" formControlName="email" name="email" placeholder="Enter Email">
-        </div>
-
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" formControlName="password" name="password" placeholder="Password">
-        </div>
-
-        <div class="login-button-container">
-          <button type="button" class="btn btn-secondary" (click)="goToLogin()">Go Back Login</button>
-          <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
-        </div>
-      </form>
+            <div class="d-flex align-items-center justify-content-center pb-4">
+              <p class="go-to-register-text">Alreay have an account? <span role="button" (click)="goToLogin()"
+                  class="link-info">Go to Login</span></p>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-
+  </div>
+  <div class="col-lg-6 card-info-container">
+    <div class="card-info-text-container">
+      <span class="card-info-title">We are more than just a company</span>
+      <span class="card-info-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis minima
+        suscipit modi dolor voluptates vitae ratione saepe, tempore culpa sapiente consequuntur architecto neque officia
+        laudantium rerum doloribus quam dolorem aliquid!</span>
+    </div>
   </div>
 </div>
