@@ -5,22 +5,24 @@
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  padding: 3rem;
+  padding: 0 3rem 3rem 3rem;
 
   .form-header-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
 
     .form-header-text {
       font-size: 20px;
       font-weight: bold;
     }
 
-    i {
-      font-size: 40px;
+    img {
+      width: auto;
+      height: 10rem;
+      object-fit: contain;
     }
   }
 
