@@ -12,6 +12,8 @@ import { LoginService } from './service/login.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({});
 
+  showPassword: boolean = false;
+
   constructor(public loginService: LoginService, public router: Router) {}
 
   ngOnInit(): void {
@@ -32,6 +34,10 @@ export class LoginComponent implements OnInit {
         }
       });
     }
+  }
+
+  changePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 
   goToRegister() {
