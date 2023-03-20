@@ -12,6 +12,7 @@ import { RegisterService } from './service/register.service';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({});
+  showPassword: boolean = false;
 
   constructor(
     public registerService: RegisterService,
@@ -45,6 +46,10 @@ export class RegisterComponent implements OnInit {
         }
       });
     }
+  }
+
+  changePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 
   goToLogin() {

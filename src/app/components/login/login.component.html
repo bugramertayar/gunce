@@ -11,7 +11,7 @@
           <div class="form-group">
             <label class="form-label" for="username">Username</label>
             <div class="input-group flex-nowrap">
-              <span class="input-group-text" id="addon-wrapping"><i class="bi bi-person-fill"></i></span>
+              <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
               <input type="text" class="form-control" formControlName="username" name="username"
                 placeholder="Enter username">
             </div>
@@ -19,9 +19,12 @@
           <div class="form-group mt-3">
             <label class="form-label" for="password">Password</label>
             <div class="input-group flex-nowrap">
-              <span class="input-group-text" id="addon-wrapping"><i class="bi bi-eye-fill"></i></span>
-              <input type="password" name="password" class="form-control" formControlName="password"
-                placeholder="Password">
+              <span class="input-group-text password-icon-container">
+                <i *ngIf="showPassword" (click)="changePasswordVisibility()" class="bi bi-eye-fill"></i>
+                <i *ngIf="!showPassword" (click)="changePasswordVisibility()" class="bi bi-eye-slash-fill"></i>
+              </span>
+              <input [type]="!showPassword ? 'password' : 'text'" name="password" class="form-control"
+                formControlName="password" placeholder="Password">
             </div>
           </div>
           <div class="login-button-container mt-4">
